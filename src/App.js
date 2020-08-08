@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import { theme, GlobalStyle } from './theme';
 import { getTokenFromUrl } from './config/spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
-import { useDataLayerValue } from './config/DataLayer';
+import { useDataLayerValue } from './context/DataLayer';
 
 import Login from './components/Login';
 import Player from './components/Player';
@@ -48,11 +49,12 @@ function App() {
   }, []);
 
   console.log('👨‍💻', user);
-
+  console.log('🔴', theme);
   return (
-    <div className='app'>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       {token ? <Player spotify={spotify} /> : <Login />}
-    </div>
+    </ThemeProvider>
   );
 }
 
