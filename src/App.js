@@ -4,6 +4,7 @@ import { theme, GlobalStyle } from './theme';
 import { getTokenFromUrl } from './config/spotify';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { useDataLayerValue } from './context/DataLayer';
+import { discoverWeeklyPlaylistId } from './constants';
 
 import Login from './components/Login';
 import Player from './components/Player';
@@ -45,18 +46,15 @@ function App() {
       });
 
       // get discover weekly playlist and store in datalyer context
-      spotify.getPlaylist('37i9dQZEVXcC4VfCkMX0zQ').then((playlist) => {
+      spotify.getPlaylist(discoverWeeklyPlaylistId).then((playlist) => {
         dispatch({
           type: 'SET_DISCOVER_WEEKLY',
           discover_weekly: playlist,
         });
       });
     }
+  }, [user, token]);
 
-    console.log(`I HAVE A TOKEN 🚀`, token);
-  }, []);
-
-  console.log('👨‍💻', user);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
