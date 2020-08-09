@@ -17,7 +17,7 @@ const SidebarWrapper = styled.aside`
 `;
 
 const Seperator = styled.hr`
-  border: 1px solid ${(props) => props.theme.colors.grey};
+  border: 1px solid ${(props) => props.theme.colors.lightGrey};
   width: 100%;
 `;
 
@@ -51,8 +51,8 @@ const Sidebar = () => {
 
       <Seperator />
 
-      {playlists?.items?.map((playlist) => (
-        <SidebarOption title={playlist.name} />
+      {playlists?.items?.map((playlist, key) => (
+        <SidebarOption key={key} title={playlist.name} />
       ))}
     </SidebarWrapper>
   );

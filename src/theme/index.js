@@ -6,6 +6,7 @@ export const theme = {
     secondary: '#5b5773',
     white: '#fff',
     black: '#000',
+    lightGrey: '#B3B3B3',
     grey: '#383838',
     darkGrey: '#040404',
     text: '#444',
@@ -27,10 +28,15 @@ export const theme = {
   gradient: {
     purple: 'linear-gradient(transparent, rgba(0, 0, 0, 1)) #5b5773',
   },
-  animation: '150ms',
+  animation: '0.15s',
+  boxShadow: '0 4px 60px rgba(0,0,0,.5)',
 };
 
 export const GlobalStyle = createGlobalStyle`
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
   *,
   *::after,
   *::before {
@@ -44,6 +50,7 @@ export const GlobalStyle = createGlobalStyle`
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
   }
 
   code {

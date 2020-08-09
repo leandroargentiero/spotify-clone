@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  color: ${(props) => props.theme.colors.grey};
+  color: ${(props) => props.theme.colors.lightGrey};
   height: ${(props) => props.theme.spacing.space08};
   cursor: pointer;
   transition: ${(props) => props.theme.animation} color ease-in;

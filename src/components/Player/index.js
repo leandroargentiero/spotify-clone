@@ -14,7 +14,7 @@ const Player = ({ spotify }) => {
     <>
       <Container>
         <Sidebar />
-        <Body />
+        <Body spotify={spotify} />
       </Container>
       <Footer />
     </>

@@ -19,7 +19,7 @@ function App() {
     const _token = hash.access_token;
 
     if (_token) {
-      // store token in datalayer
+      // store token in datalayer context
       dispatch({
         type: 'SET_TOKEN',
         token: _token,
@@ -28,7 +28,7 @@ function App() {
       // connect app with spotify web api
       spotify.setAccessToken(_token);
 
-      // get user data from spotify app and store in datalayer
+      // get user data from spotify app and store in datalayer context
       spotify.getMe().then((user) => {
         dispatch({
           type: 'SET_USER',
@@ -36,11 +36,19 @@ function App() {
         });
       });
 
-      // get playlist data and store in datalayer
+      // get playlist data and store in datalayer context
       spotify.getUserPlaylists().then((playlists) => {
         dispatch({
           type: 'SET_PLAYLISTS',
           playlists: playlists,
+        });
+      });
+
+      // get discover weekly playlist and store in datalyer context
+      spotify.getPlaylist('37i9dQZEVXcC4VfCkMX0zQ').then((playlist) => {
+        dispatch({
+          type: 'SET_DISCOVER_WEEKLY',
+          discover_weekly: playlist,
         });
       });
     }
@@ -49,7 +57,6 @@ function App() {
   }, []);
 
   console.log('👨‍💻', user);
-  console.log('🔴', theme);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
