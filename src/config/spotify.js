@@ -1,6 +1,7 @@
 // https://developer.spotify.com/documentation/web-playback-sdk/quick-start/
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
-const redirectUri = 'http://localhost:3000/';
+const redirectUriProduction = 'https://spotify-clone-473b0.web.app/'; // enable for production builds
+// const redirectUriDevelopment = 'http://localhost:3000/'; // enable during development
 const clientId = 'cac02b0ac1f941178cb897a37d62d813';
 
 // user permissions
@@ -13,7 +14,7 @@ const scopes = [
   'playlist-read-private',
 ];
 
-export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUriProduction}&scope=${scopes.join(
   '%20'
 )}&response_type=token&show_dialog=true`;
 

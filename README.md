@@ -2,7 +2,7 @@
 
 This repository is a basic Spotify clone React application.
 
-See [_URL TO BE ADDED_]()
+See [DEMO](https://spotify-clone-473b0.web.app/)
 
 ### Used technologies
 
