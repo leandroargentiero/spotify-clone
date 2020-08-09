@@ -37,9 +37,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const SongRow = ({ track }) => {
+const SongRow = ({ track, playSong, pauseSong, isPlaying }) => {
   return (
-    <Wrapper>
+    <Wrapper
+      onClick={() => (isPlaying ? pauseSong(track.id) : playSong(track.id))}
+    >
       <img src={track.album.images[0].url} alt='song name' />
       <div>
         <h1>{track.name}</h1>

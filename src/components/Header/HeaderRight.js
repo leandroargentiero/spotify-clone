@@ -13,7 +13,7 @@ const UserName = styled.h4`
 
 const HeaderRight = () => {
   const [{ user }, dispatch] = useDataLayerValue();
-  console.log('👀', user);
+
   return (
     <Wrapper>
       <Avatar src={user?.images[0]?.url} alt={user?.display_name} />

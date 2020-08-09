@@ -4,13 +4,13 @@ export const initalState = {
   playing: false,
   discover_weekly: null,
   item: null,
-  // REMOVE after finished develiping null
+  // For development purposes only, please disable when building for production.
   // token:
   //   'BQDYVt_AS4Kqi4LAiKBS6JEs0ZD7ILpEQCWV9TXQcty-d2LisP8ZYE-31EjlrY-DsSl1zjUH9836n33gxJ14YDuRAV3GRzsjyGwlimBTK2G6Je8ien1L9PgXNNAW6wIN3EHLTzAVKo7FqQXtAd5ASTqwImLfOBw',
 };
 
 const reducer = (state, action) => {
-  console.log(action);
+  // console.log(action);
 
   // Action -> type, [payload]
   switch (action.type) {
@@ -33,6 +33,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         discover_weekly: action.discover_weekly,
+      };
+    case 'SET_ITEM':
+      return {
+        ...state,
+        item: action.item,
+      };
+    case 'SET_PLAYING':
+      return {
+        ...state,
+        playing: action.playing,
       };
     default:
       return state;
